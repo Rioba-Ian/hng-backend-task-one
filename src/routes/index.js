@@ -15,10 +15,10 @@ routes.get("/", (req, res) => {
     "Saturday",
   ];
 
-  const dayName = days[date.getUTCDate()];
+  const dayName = days[date.getUTCDay()];
   const utcTime = date.toISOString();
 
-  const slack_name = req.query.slack_name || "example_name";
+  const slack_name = req.query.slack_name || "Rioba Felix";
   const track = req.query.track || "backend";
 
   res.json({
@@ -26,8 +26,9 @@ routes.get("/", (req, res) => {
     current_day: dayName,
     utc_time: utcTime,
     track: track,
-    github_file_url: "",
-    github_repo_url: "",
+    github_file_url:
+      "https://github.com/Rioba-Ian/hng-backend-task-one/blob/main/src/index.js",
+    github_repo_url: "https://github.com/Rioba-Ian/hng-backend-task-one",
     status: 200,
   });
 });
