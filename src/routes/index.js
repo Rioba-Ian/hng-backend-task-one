@@ -16,7 +16,7 @@ routes.get("/", (req, res) => {
   ];
 
   const dayName = days[date.getUTCDay()];
-  const utcTime = date.toISOString();
+  const utcTime = utc.toISOString().split(".")[0] + "Z";
 
   const slack_name = req.query.slack_name || "Rioba Felix";
   const track = req.query.track || "backend";
